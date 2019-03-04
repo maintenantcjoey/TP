@@ -1,0 +1,12 @@
+.fa-arrow-circle-left {
+    color: #2b98de;
+}
+
+.fa-arrow-circle-left:hover {
+    text-decoration: none;
+    color: #2b98de;
+}
+
+#buttonWidgetCalendar {
+    width: 140px;
+}

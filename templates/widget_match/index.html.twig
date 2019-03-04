@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Widget Match{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/widget.css') }}">{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h4>Please select the attenders for the meeting</h4>
+
+        {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.duration) }}
+        {{ form_row(form.starting) }}
+        {{ form_row(form.range) }}
+        {{ form_end(form) }}
+        <br>
+            <button type="button" class="btn btn-lg btn-primary">Cancel</button>
+            <button type="button" class="btn btn-lg btn-primary float-right">Find a date</button>
+
+    </div>
+{% endblock %}

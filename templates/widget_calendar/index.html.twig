@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TimePool{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/widgetCalendar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/calendar.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <h2 class="d-flex justify-content-center mt-5">Your calendar</h2>
+    <a href="{{ path("dashboard") }}" class="fas fa-arrow-circle-left fa-3x ml-5"></a>
+{# Calendar #}
+    <div class="container calendar">
+        <div class="d-flex justify-content-between align-items-center mx-3 mb-1">
+            <h3 class="monthTitle">{{ month.toString }}</h3>
+            <div>
+                <a href="{{ path('widget_calendar', {'month': month.prevMonth.month, 'year': month.prevMonth.year}) }}"
+                   class="btn btn-info btns">Mois précédent</a>
+                <a href="{{ path('widget_calendar', {'month': month.nextMonth.month, 'year': month.nextMonth.year}) }}"
+                   class="btn btn-info btns">Mois suivant</a>
+            </div>
+        </div>
+        <table class="calendar__table calendar__table--{{ month.getWeeks}}weeks">
+            <tr>
+                {% for day in month.days %}
+                    <th class="text-center calendar__weekday" style="height: 27px;">{{ day }}</th>
+                {% endfor %}
+            </tr>
+            {% for i in 0..month.getWeeks -1 %}
+                {% set ium = loop.index0   %}
+                <tr>
+                    {% for day in month.days %}
+                        {% set datum = startingDay|date_modify("+" ~ (loop.index0 + (ium*7)) ~ " day") %}
+                        <td>
+                            <div class="calendar__day {% if not month.inMonth(datum) %}calendar__otherMonth{% endif %}">{{ datum|date("d") }}</div>
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{#End Calendar #}
+    <div class="row">
+        <div class="col-4 d-flex justify-content-center mb-5">
+            <a href="{{ path("widget_share") }}" type="submit" class="btn btn-primary" id="buttonWidgetCalendar">Share</a>
+        </div>
+        <div class="col-4 d-flex justify-content-center mb-5">
+            <a href="{{ path("widget_match") }}" type="submit" class="btn btn-primary" id="buttonWidgetCalendar">Find a Match</a>
+        </div>
+        <div class="col-4 d-flex justify-content-center mb-5">
+            <a href="{{ path("widget_integrate") }}" type="submit" class="btn btn-primary">Integrate Calendar</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/settings.css') }}">{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center mt-5 mb-5" id="hdp">Settings</h1>
+        <div class="row flex-wrap-reverse justify-content-center">
+            <div class="col-md-6">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="settingsFirstName">First Name :</label>
+                        <input id="settingsFirstName" type="text" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="settingsLastName">Last Name :</label>
+                        <input id="settingsLastName" type="text" class="form-control" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="settingsEmail">E-mail :</label>
+                        <input id="settingsEmail" type="text" class="form-control" placeholder="E-mail">
+                    </div>
+                    <button type="submit" name="settingsInfos" class="btn btn-primary">Save changes</button>
+                    <a href="" class="float-right">Change Password</a>
+                </form>
+            </div>
+            <div class="col-md-4 row flex-column flex-nowrap mb-5">
+                <div class="col-md-9 mt-3 text-center mx-auto">
+                    <img class="rounded-circle" src="http://placehold.it/200x200" alt="profil">
+                </div>
+                <div class="col-md-8 mt-3 mx-auto text-center">
+                    <button type="submit" class="btn btn-primary" name="settingsImage">Edit Picture</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <form action="">
+                <h3 class="mb-5 mt-3">Set your calendar preferencies :</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
+                            <label class="custom-control-label" for="customCheck1">Calendar 1</label>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2" checked="">
+                        <label class="custom-control-label" for="customCheck2">Calendar 2</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck3" checked="">
+                        <label class="custom-control-label" for="customCheck3">Calendar 3</label>
+                    </div>
+                </div>
+                <p class="collapsible">Voir plus de calendriers</p>
+                <div class="content">
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck4" checked="">
+                            <label class="custom-control-label" for="customCheck4">Calendar 4</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck5" checked="">
+                            <label class="custom-control-label" for="customCheck5">Calendar 5</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Change</button>
+            </div>
+        </div>
+        </form>
+        <br>
+        <hr>
+        <br>
+
+        <h3 class="mb-3 mt-3">Show :</h3>
+        <form action="">
+            <div class="row justify-content-center">
+                <div class="col-md-3 text-center">
+                    <label for="week" class="h3">Week</label>
+                    <input type="radio" id="week" value="week" name="radio">
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="month" class="h3">Month</label>
+                    <input type="radio" id="month" value="month" name="radio">
+                </div>
+            </div>
+        </form>
+        <br>
+        <hr>
+        <br>
+        <div class="text-center mt-3 mb-5">
+        <a href="" class="text-danger">Delete your account</a>
+        <a href="#hdp" class="float-right"><img id="arrow" src="{{ asset('assets/images/arrowUp.png') }}" alt="arrowUp"></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/js/settings.js') }}"></script> {% endblock %}

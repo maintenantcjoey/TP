@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{{ controller_name }}!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/dashboardCss.css') }}">{% endblock %}
+
+{% block header %}{% endblock %}
+{% block body %}
+
+    <div class="container">
+
+        <div class="row justify-content-center mx-auto">
+            <div class="text-center col-sm-12 col-md-6 col-lg-4 mt-5">
+                <a href="{{ path('widget_calendar') }}"><button class="btn btn-outline-primary">Display Calendar</button></a>
+            </div>
+            <div class="text-center col-sm-12 col-md-6 col-lg-4 mt-5">
+                <a href="{{ path('widget_share') }}"><button class="btn btn-outline-primary">Sharing option</button></a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mx-auto">
+            <div class="text-center col-sm-12 col-md-6 col-lg-4 mt-5">
+                <a href="{{ path('widget_match') }}"><button class="btn btn-outline-primary">Find a match</button></a>
+            </div>
+            <div class="text-center col-sm-12 col-md-6 col-lg-4 mt-5">
+                <a href="{{ path('widget_integrate') }}"><button class="btn btn-outline-primary">Integrate calendar</button></a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

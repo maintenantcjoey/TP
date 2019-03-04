@@ -1,0 +1,35 @@
+{% extends 'firstBase.html.twig' %}
+
+{% block stylesheets %}<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/selectCalendarStyle.css') }}">
+{% endblock %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div id="sheet" class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="example-wrapper">
+        <h2>Select which of your calendars TimePool should use !</h2>
+
+        {% for calendar in user.selected_calendar %}
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" value="{{ calendar[loop.index0].id }}" checked="checked">
+                {{ calendar[loop.index0].name }}
+            </label>
+        </div>
+        {% endfor %}
+
+        {% for calendar in user.unselected_calendar %}
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="{{ calendar[loop.index0].id }}">
+                    {{ calendar[loop.index0].name }}
+                </label>
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Let's go !</button>
+    </div>
+</div>
+    {% endblock %}
